@@ -1,0 +1,2459 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/reports/{id}/dismiss": {
+            "post": {
+                "tags": [
+                    "report-controller"
+                ],
+                "operationId": "updatePoll",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reports/list": {
+            "post": {
+                "tags": [
+                    "report-controller"
+                ],
+                "operationId": "createPoll",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/{id}/reports": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "listReports",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/{id}/comments": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "listComments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/update": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "updatePost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/up-vote": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "upVote",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/report": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "report",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReportContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/remove": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "removePost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/remove-vote": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "removeVote",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/down-vote": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "downVote",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/create": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "createPost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/add-comment": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "addComment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCommentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/activate": {
+            "post": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "activatePost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/{id}/comments": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "listComments_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/update": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "updatePoll_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePollRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/select-answer": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "selectAnswer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SelectPollAnswerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/remove": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "removePoll",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/remove-answer": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "removeAnswer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RemovePollAnswerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/create": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "createPoll_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePollRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/add-comment": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "addComment_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCommentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/add-answer": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "addAnswer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAnswerToPollRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/activate": {
+            "post": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "activatePoll",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/{id}/reports": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "listReports_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/{id}/comments": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "listComments_2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/update": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "updatePin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePinRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/up-vote": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "upVote_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/report": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "report_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReportContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/report-irrelevant": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "reportIrrelevant",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/remove": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "removePin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/remove-vote": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "removeVote_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/list": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "list",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/for-route/{routeCode}": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "listForRoute",
+                "parameters": [
+                    {
+                        "name": "routeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponsePinMapData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/down-vote": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "downVote_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/create": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "createPin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePinRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/add-comment": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "addComment_2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCommentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/activate": {
+            "post": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "activatePin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/discussion/for-route/{routeCode}": {
+            "post": {
+                "tags": [
+                    "discussion-controller"
+                ],
+                "operationId": "listForRoute_1",
+                "parameters": [
+                    {
+                        "name": "routeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/{id}/reports": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "listReports_2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/{id}/replies": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "listComments_3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ListingParams"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceListingResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/update": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "updateComment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCommentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/up-vote": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "upVote_2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/report": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "report_2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReportContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseReportData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/remove": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "removeComment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/remove-vote": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "removeVote_2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/down-vote": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "downVote_2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseRatingData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/add-reply": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "addComment_3",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCommentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/activate": {
+            "post": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "activateComment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OperateOnContentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/{id}": {
+            "get": {
+                "tags": [
+                    "post-controller"
+                ],
+                "operationId": "getPost",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/polls/{id}": {
+            "get": {
+                "tags": [
+                    "poll-controller"
+                ],
+                "operationId": "getPoll",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseDiscussionElementData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pins/{id}": {
+            "get": {
+                "tags": [
+                    "pin-controller"
+                ],
+                "operationId": "getPin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponsePinData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/comments/{id}": {
+            "get": {
+                "tags": [
+                    "comment-controller"
+                ],
+                "operationId": "getComment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ServiceResponseCommentData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ReportData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "creator": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "reportTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "enum": [
+                            "IRRELEVANT",
+                            "INAPPROPRIATE_CONTENT",
+                            "OFFENSIVE_CONTENT"
+                        ]
+                    }
+                }
+            },
+            "ServiceResponseReportData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/ReportData"
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "pinVoteWeight": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "admin": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "FilterParam": {
+                "type": "object",
+                "properties": {
+                    "fieldName": {
+                        "type": "string"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "enum": [
+                            "IS",
+                            "IS_NOT",
+                            "IS_MORE_THEN",
+                            "IS_LESS_THEN"
+                        ]
+                    },
+                    "compareValue": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ListingParams": {
+                "type": "object",
+                "properties": {
+                    "batchSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sortingParams": {
+                        "$ref": "#/components/schemas/SortingParams"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FilterParam"
+                        }
+                    }
+                }
+            },
+            "SortingParams": {
+                "type": "object",
+                "properties": {
+                    "fieldName": {
+                        "type": "string"
+                    },
+                    "sortingDirection": {
+                        "type": "string",
+                        "enum": [
+                            "ASCENDING",
+                            "DESCENDING"
+                        ]
+                    }
+                }
+            },
+            "ServiceListingResponseReportData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resultSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReportData"
+                        }
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "CommentData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "author": {
+                        "$ref": "#/components/schemas/UserData"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "rating": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "responseNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "removed": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ServiceListingResponseCommentData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resultSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CommentData"
+                        }
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "UserData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "admin": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "FileData": {
+                "type": "object",
+                "properties": {
+                    "fileId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "UpdatePostRequest": {
+                "type": "object",
+                "properties": {
+                    "postId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "newText": {
+                        "type": "string"
+                    },
+                    "files": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FileData"
+                        }
+                    },
+                    "updaterId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "AttachedFile": {
+                "type": "object"
+            },
+            "DiscussionElementData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "creator": {
+                        "$ref": "#/components/schemas/UserData"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "ratingData": {
+                        "$ref": "#/components/schemas/RatingData"
+                    },
+                    "commentsPreview": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CommentData"
+                        }
+                    },
+                    "commentsAmount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "attachedFiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AttachedFile"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "POLL",
+                            "POST",
+                            "PIN",
+                            "COMMENT",
+                            "VOTE",
+                            "POLL_ANSWER",
+                            "REPORT"
+                        ]
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "removed": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "RatingData": {
+                "type": "object",
+                "properties": {
+                    "totalRating": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "ServiceResponseDiscussionElementData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/DiscussionElementData"
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "OperateOnContentRequest": {
+                "type": "object",
+                "properties": {
+                    "contentId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "ServiceResponseRatingData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/RatingData"
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ReportContentRequest": {
+                "type": "object",
+                "properties": {
+                    "contentId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "reportReason": {
+                        "type": "string",
+                        "enum": [
+                            "IRRELEVANT",
+                            "INAPPROPRIATE_CONTENT",
+                            "OFFENSIVE_CONTENT"
+                        ]
+                    }
+                }
+            },
+            "CreatePostRequest": {
+                "type": "object",
+                "properties": {
+                    "onDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "attachedFiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FileData"
+                        }
+                    }
+                }
+            },
+            "AddCommentRequest": {
+                "type": "object",
+                "properties": {
+                    "contentId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "commenterId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "commentContent": {
+                        "type": "string"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "ServiceResponseCommentData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CommentData"
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "UpdatePollRequest": {
+                "type": "object",
+                "properties": {
+                    "pollId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "newText": {
+                        "type": "string"
+                    },
+                    "updaterId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "SelectPollAnswerRequest": {
+                "type": "object",
+                "properties": {
+                    "pollId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "answerId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "RemovePollAnswerRequest": {
+                "type": "object",
+                "properties": {
+                    "pollId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "answerId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "CreatePollRequest": {
+                "type": "object",
+                "properties": {
+                    "onDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "answers": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "AddAnswerToPollRequest": {
+                "type": "object",
+                "properties": {
+                    "pollId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "answerText": {
+                        "type": "string"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "UpdatePinRequest": {
+                "type": "object",
+                "properties": {
+                    "pinId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "newTitle": {
+                        "type": "string"
+                    },
+                    "newText": {
+                        "type": "string"
+                    },
+                    "newFile": {
+                        "$ref": "#/components/schemas/FileData"
+                    },
+                    "updaterId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "LatLng": {
+                "type": "object",
+                "properties": {
+                    "lat": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "lng": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "PinData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "creator": {
+                        "$ref": "#/components/schemas/UserData"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rating": {
+                        "$ref": "#/components/schemas/RatingData"
+                    },
+                    "commentsNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "commentsPreview": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CommentData"
+                        }
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "attachedFile": {
+                        "$ref": "#/components/schemas/FileData"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "TIP",
+                            "WARNING",
+                            "DANGER",
+                            "SIGHT",
+                            "RESTING_PLACE",
+                            "MISC_FACT"
+                        ]
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/LatLng"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "relevant": {
+                        "type": "boolean"
+                    },
+                    "removed": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ServiceResponsePinData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/PinData"
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ServiceListingResponsePinData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resultSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PinData"
+                        }
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PinMapData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/LatLng"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "TIP",
+                            "WARNING",
+                            "DANGER",
+                            "SIGHT",
+                            "RESTING_PLACE",
+                            "MISC_FACT"
+                        ]
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "rating": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "ServiceListingResponsePinMapData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resultSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PinMapData"
+                        }
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "CreatePinRequest": {
+                "type": "object",
+                "properties": {
+                    "onDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "TIP",
+                            "WARNING",
+                            "DANGER",
+                            "SIGHT",
+                            "RESTING_PLACE",
+                            "MISC_FACT"
+                        ]
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "attachedFile": {
+                        "$ref": "#/components/schemas/FileData"
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/LatLng"
+                    },
+                    "routeCode": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ServiceListingResponseDiscussionElementData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resultSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DiscussionElementData"
+                        }
+                    },
+                    "successful": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "UpdateCommentRequest": {
+                "type": "object",
+                "properties": {
+                    "commentId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "updaterId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "text": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
